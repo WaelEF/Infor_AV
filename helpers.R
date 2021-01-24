@@ -20,7 +20,11 @@ library(highcharter)
 library(shinyBS)
 library(tidyquant)
 
+library(tseries)
+library(forecast)
 
+
+library(timetk)
 
 Extraction <- function(db,names)
 {
@@ -67,10 +71,53 @@ ST_Plot <- function(db,titre)
 
 charter2 <- function(name)
 {
-  x = getSymbols(name,auto.assign=FALSE)
+  start_Date = as.Date("2016-01-01")
+  x = getSymbols(name,auto.assign=FALSE,from = start_Date)
   
   return(hchart(x))
 }
+
+
+
+
+
+
+
+
+plot_avance1 <- function(name)
+{
+  start_Date = as.Date("2016-01-01")
+  x = getSymbols(name,auto.assign = FALSE,from = start_Date)
+  x=data.frame(x)
+  
+  AAPL_ts <- log(ts(na.omit(x[[paste0(name,".Close")]]), start =c(2016,01), frequency = 365))
+  
+  AAPL_decomp_stl <- stl(AAPL_ts, s.window = "periodic", robust = 'TRUE')
+  return(ggtsdisplay(AAPL_ts))
+  
+}
+plot_avance2 <- function(name)
+{
+  start_Date = as.Date("2016-01-01")
+  x = getSymbols(name,auto.assign = FALSE,from = start_Date)
+  x=data.frame(x)
+  
+  AAPL_ts <- log(ts(na.omit(x[[paste0(name,".Close")]]), start =c(2016,01), frequency = 365))
+  
+  AAPL_decomp_stl <- stl(AAPL_ts, s.window = "periodic", robust = 'TRUE')
+  return(plot(AAPL_decomp_stl))
+  
+}
+
+
+
+
+
+
+
+
+
+
 
 
 PT_Plot <- function(db,portefeuille)

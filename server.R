@@ -90,7 +90,14 @@ server <- function(input, output, session){
     
 
   })
-
+  #####
+  output$plot1 <- renderPlot({
+    plot_avance1(input$Choix2)
+  })
+  
+  output$plot2 <- renderPlot({
+    plot_avance2(input$Choix2)
+  })
   
   
   

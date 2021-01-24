@@ -52,9 +52,17 @@ dashboardPage(title = "Value at Risk",
                       ),
                 tabItem(
                   tabName = "analyse_graphique",
-                  selectizeInput(inputId = "Choix2", label ="Actions à Visualiser",choices=NULL,multiple=FALSE,
+                  selectizeInput(inputId = "Choix2", label ="Action à Analyser",choices=NULL,multiple=FALSE,
                                  options =list( placeholder = 'Titres à examiner')),
-                  highchartOutput("hcontainer2",height = "500px")
+                  highchartOutput("hcontainer2",height = "500px"),
+
+                  h2("Fonction d'autocorrélation"),
+                  hr(),
+                  plotOutput("plot1"),
+                 
+                  h2("Decomposition STL"),
+                  hr(),
+                  plotOutput("plot2")
 
                 ),
                
