@@ -1,0 +1,38 @@
+---
+bibliography: biblio.bib
+output:  
+  html_document: 
+    theme: spacelab
+    highlight: tango
+
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## À propos
+Cette application rentre dans le cadre du module "Informatique Avancée" suivi à l'École
+Supérieure de la Statistique et de l'Analyse de l'Information de Tunis [ESSAIT](http://www.essai.rnu.tn/).
+
+Ce travail vise à appliquer les connaissances acquises en Gestion des Risques et de les combiner avec les outils
+informatiques pour produire un aperçu clair des méthodes de calcul de la "Value at Risk".
+
+Cette application shiny nécessite l'installation des packages suivants : 
+
+  - Shiny,  @shiny
+  - XTS, @xts
+  - DT, @DT
+  - ggplot, @ggplot2,
+  - Highcharter, @highcharter
+  - shinydashboard, @shinydashboard
+  - shinythemes, @shinythemes
+  - quantmod, @quantmod
+
+
+### Contact:
+
+Wael El Ferchichi 
+wael.elferchichi@gmail.com
+
+### References:
